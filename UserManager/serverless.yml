@@ -1,7 +1,7 @@
 service: userservice
 provider:
   name: aws
-  role: arn:aws:iam::023572242395:role/service-role/MyLambdaRole
+  role: arn:aws:iam::00000XXXXXX:role/service-role/MyLambdaRole
   runtime: nodejs12.x
   stage: dev
   region: ap-south-1
