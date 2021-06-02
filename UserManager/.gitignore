@@ -1,0 +1,6 @@
+# .gitignore 
+.serverless
+.node_modules
+.serverless/
+/node_modules/
+/package-lock.json

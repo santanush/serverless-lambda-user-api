@@ -1,0 +1,53 @@
+service: userservice
+provider:
+  name: aws
+  role: arn:aws:iam::023572242395:role/service-role/MyLambdaRole
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-south-1
+  profile: santanu 
+functions:
+  user:
+    handler: Controller/apiController.handler
+    events:
+      - http:
+          path: /user/ping
+          method: GET
+          cors: true
+      - http:
+          path: /user/register
+          method: POST
+          cors: true
+      - http:
+          path: /user/ 
+          method: POST
+          cors:
+            origin: '*' # <-- Specify allowed origin
+            headers: # <-- Specify allowed headers
+              - Content-Type
+              - Authorization
+            allowCredentials: false
+      - http:
+          path: /user/logout
+          method: POST
+          cors: true
+      - http:
+          path: /user/authenticate
+          method: POST
+          cors: true
+      - http:
+          path: /user/alluser
+          method: GET
+          cors: true 
+      - http:
+          path: /user/get/loginid/{login_id}
+          method: GET
+          cors: true     
+    environment:
+      MONGODB_URL_API: ${env:MONGODB_URL_API}
+      JWT_TOKEN_KEY: ${env:JWT_TOKEN_KEY}
+      NODE_ENV: ${env:NODE_ENV}
+      REGION: ${env:REGION}       
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
