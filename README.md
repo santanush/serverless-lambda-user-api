@@ -1,4 +1,4 @@
-# serverless-lambda-user-api
+# serverless-lambda-user-api (User Authetication using serverless framework and JSON Web Token)
 # Overview
 This project contains UserManager API developed using **serverless** framework.
 This API's can be utilized to start a User Management API. 
